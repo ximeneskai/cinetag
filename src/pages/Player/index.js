@@ -10,7 +10,7 @@ function Player() {
     const parametros = useParams();
 
     useEffect(() => {
-        fetch(`https://my-json-server.typicode.com/monicahillman/cinetag-api/videos?id=${parametros.id}`)
+        fetch(`https://my-json-server.typicode.com/ximeneskai/cinetag-apijson/videos?id=${parametros.id}`)
             .then(resposta => resposta.json())
             .then(dados => {
                 setVideo(...dados)
@@ -20,6 +20,11 @@ function Player() {
     if (!video) {
         return <NaoEncontrada />
     }
+
+    // Verifica se o link do YouTube está correto e converte para o formato de incorporação
+    const embedLink = video.link.includes('youtube.com') ? 
+        video.link.replace('https://www.youtube.com/watch?v=', 'https://www.youtube.com/embed/') : 
+        video.link;
 
     return (
         <>
@@ -31,10 +36,11 @@ function Player() {
                 <iframe
                     width="100%"
                     height="100%"
-                    src={video.link}
+                    src={embedLink}  // Usa o link de incorporação do YouTube
                     title={video.titulo}
                     frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                </iframe>
             </section>
         </>
     )
