@@ -1,4 +1,4 @@
-import styles from './Container.module.css'
+import styles from './Container.module.css';
 
 function Container({ children }) {
     return (
@@ -8,4 +8,4 @@ function Container({ children }) {
     )
 }
 
-export default Container
+export default Container;

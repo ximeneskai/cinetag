@@ -10,12 +10,10 @@ function PaginaBase() {
             <Cabecalho />
             <FavoritosProvider>
                 <Container>
-                    {/* ROTA ANINHADA */}
-                    <Outlet /> 
+                    <Outlet />
                 </Container>
             </FavoritosProvider>
-            <Rodape/>
-        
+            <Rodape />
         </main>
     )
 }

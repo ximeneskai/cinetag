@@ -1,7 +1,3 @@
-import Cabecalho from "components/Cabecalho";
-import Container from "components/Container";
-import Rodape from "components/Rodape";
-import FavoritosProvider from "contextos/Favoritos";
 import Favoritos from "pages/Favoritos";
 import Inicio from "pages/Inicio";
 import NaoEncontrada from "pages/NaoEncontrada";
@@ -16,7 +12,7 @@ function AppRoutes() {
                 <Route path="/" element={<PaginaBase />}>
                     <Route index element={<Inicio />}></Route>
                     <Route path="favoritos" element={<Favoritos />}></Route>
-                    <Route path=":id" element={<Player/>}></Route>
+                    <Route path=":id" element={<Player />}></Route>
                     <Route path="*" element={<NaoEncontrada />}></Route>
                 </Route>
             </Routes>
